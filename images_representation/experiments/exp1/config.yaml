@@ -1,0 +1,43 @@
+
+
+experiment_name: test1
+number_of_epocs: 1500
+side_length: 48
+batch_size: 5
+plot_images_epocs_interval: 50
+model: Siren
+optim: Adam
+images_dir: /Users/gabi.burabia/Downloads/Data/48
+shuffle: True
+model_parameters:
+  in_features: 4
+  out_features: 1
+  hidden_features: 120
+  hidden_layers: 3
+  outermost_linear: True
+
+optimizer_parameters:
+
+  lr: 0.0001
+
+
+actions:
+  -
+    type: PLOT
+    params:
+      plot_epoc_interval: 50
+
+transformations:
+  -
+    type: Resize
+    params:
+      size: 48
+  -
+     type: ToTensor
+  -
+   type: Normalize
+   params:
+     mean: 0.5
+     std: 0.5
+
+model_weights_dir: /Users/gabi.burabia/Desktop/gabi/images_representation/experiments
